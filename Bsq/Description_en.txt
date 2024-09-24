@@ -2,38 +2,81 @@ English:
 
     Project Description
 
-        To execute the code, type "php battleship.php" in the console.
+        This project consists of two scripts:
 
-        This PHP project provides a function that creates and displays a grid representing a game board with ships
-        placed at specified coordinates. The grid's dimensions are determined by the parameters
-        $x (number of columns) and $y (number of rows). Ships are marked with an "X"        
-        on the grid based on the coordinates provided in the $ships array.
+            1) bsq.php: A PHP script that solves the "Biggest Square" (BSQ) problem. It reads a map from a file and finds the largest square that can be placed on the map without overlapping any obstacles.
 
-    Function Overview
+            2) generator.pl: A Perl script that generates random maps for testing the bsq.php script.
 
-        The function colle($x, $y, array $ships = []) performs the following steps:
+    1. bsq.php
+    Functionality:
+
+        Input Handling:
+
+            The script expects one command-line argument: the filename of the map to be processed.
+            
+            If the number of arguments is incorrect or the file cannot be opened, it displays an error message and exits.
         
-        Input Validation: Checks if $x and $y are greater than zero. If not, the function returns without executing further.
-        
-        Grid Initialization: Creates a two-dimensional array $grid filled with spaces (" "), representing an empty game board.
-        
-        Ship Placement: Iterates over the $ships array and places an "X" on the grid at each valid coordinate. Coordinates outside the grid boundaries are ignored.
-        
-        Grid Display: Outputs the grid with borders using ASCII characters, showing the placement of ships.
+        Map Processing:
 
-    Usage Example
+            Reads the first line of the file to determine the number of rows ($rows).
+           
+            Reads the subsequent lines to build the map ($board), which is a 2D array of characters where:
+                
+                '.' represents an empty space.
+                
+                'o' represents an obstacle.
 
-        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
+        Algorithm:
 
-        This example creates a grid with 5 columns and 3 rows, placing ships at the coordinates (2,1), (2,1), (1,2), and (1,7).
+            Initializes a 2D array $sizes to store the size of the largest square ending at each position.
 
-        Note that the coordinate (1,7) is outside the grid bounds and will be ignored.
+            Iterates over each cell in the map:
 
-    Sample Output
-        +---+---+---+---+---+
-        |   |   |   |   |   |
-        +---+---+---+---+---+
-        | X |   | X |   |   |
-        +---+---+---+---+---+
-        |   | X |   |   |   |
-        +---+---+---+---+---+
+                If the cell is an empty space ('.'):
+
+                    For the first row or column, sets $sizes[$i][$j] = 1.
+
+                    Otherwise, calculates the minimal value among the neighboring cells ($sizes[$i-1][$j], $sizes[$i][$j-1], $sizes[$i-1][$j-1]) and adds 1.
+
+                Keeps track of the maximum square size found ($maxSize) and its bottom-right coordinates ($maxI, $maxJ).
+
+            Replaces the largest square found in the map with 'x' characters.
+
+        Output:
+
+            Prints the map to the console with the largest square marked with 'x'.
+
+        Usage Example:
+
+            php bsq.php map.txt
+
+    2. generator.pl
+    Functionality:
+
+        Input Handling:
+
+            Expects three command-line arguments: width (x), height (y), and density (density).
+
+        Map Generation:
+
+            Generates a map of dimensions x by y.
+
+            Fills the map with:
+
+                '.' representing empty spaces.
+
+                'o' representing obstacles.
+
+            The density parameter controls the likelihood of placing an obstacle.
+
+        Output:
+
+            Writes the generated map to a file named 'test'.
+
+            Prints a message indicating that the result is saved.
+
+    Usage Example:
+
+        This command generates a 10x10 map with a density of 3.
+        perl generator.pl 10 10 3

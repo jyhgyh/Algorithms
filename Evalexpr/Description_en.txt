@@ -2,38 +2,64 @@ English:
 
     Project Description
 
-        To execute the code, type "php battleship.php" in the console.
+        This PHP project is a simple calculator that evaluates mathematical expressions provided as command-line arguments.
+        It supports basic arithmetic operations, including addition, subtraction, multiplication, division, and parentheses for grouping.
 
-        This PHP project provides a function that creates and displays a grid representing a game board with ships
-        placed at specified coordinates. The grid's dimensions are determined by the parameters
-        $x (number of columns) and $y (number of rows). Ships are marked with an "X"        
-        on the grid based on the coordinates provided in the $ships array.
+    Functionality
 
-    Function Overview
+        Input Handling
 
-        The function colle($x, $y, array $ships = []) performs the following steps:
+            The script accepts a mathematical expression as the first command-line argument ($argv[1]).
+            
+            It sanitizes the input by removing any invalid characters using preg_replace, allowing only numbers, operators, and parentheses.
         
-        Input Validation: Checks if $x and $y are greater than zero. If not, the function returns without executing further.
-        
-        Grid Initialization: Creates a two-dimensional array $grid filled with spaces (" "), representing an empty game board.
-        
-        Ship Placement: Iterates over the $ships array and places an "X" on the grid at each valid coordinate. Coordinates outside the grid boundaries are ignored.
-        
-        Grid Display: Outputs the grid with borders using ASCII characters, showing the placement of ships.
+        Expression Parsing
 
+            my_eval_expr($equation) Function
+
+                Cleans the input expression.
+                
+                Calls parse_expression($equation) to evaluate the sanitized expression.
+            
+            parse_expression($equation) Function
+
+                Parentheses Handling
+
+                    Uses regular expressions to recursively evaluate expressions within parentheses.
+                
+                    Replaces the innermost parentheses with their evaluated result until no parentheses remain.
+                
+                Multiplication and Division
+
+                    Uses regular expressions to find multiplication and division operations.
+                
+                    Evaluates these operations before addition and subtraction to respect operator precedence.
+                
+                    Supports floating-point numbers.
+                
+                Addition and Subtraction
+
+                    Uses regular expressions to find addition and subtraction operations.
+                
+                    Evaluates these operations after multiplication and division.
+        
+        Testing
+
+            A separate test script (test.php) is provided.
+
+            TestCase Class
+
+                Provides methods for asserting equality (assertEquals) and tracking test results.
+            
+                Handles the display of test results with colored output for passed and failed tests.
+            
+            UnitTest Class
+
+                Inherits from TestCase.
+            
+                Contains the testEvalExpr() method, which runs multiple test cases to verify the calculator's correctness.
+    
     Usage Example
 
-        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
-
-        This example creates a grid with 5 columns and 3 rows, placing ships at the coordinates (2,1), (2,1), (1,2), and (1,7).
-
-        Note that the coordinate (1,7) is outside the grid bounds and will be ignored.
-
-    Sample Output
-        +---+---+---+---+---+
-        |   |   |   |   |   |
-        +---+---+---+---+---+
-        | X |   | X |   |   |
-        +---+---+---+---+---+
-        |   | X |   |   |   |
-        +---+---+---+---+---+
+    php calculator.php "2+(3*4)-5"
+    This command will output the result of the expression 2+(3*4)-5, which is 9.

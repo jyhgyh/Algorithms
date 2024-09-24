@@ -2,37 +2,81 @@ Français:
 
     Description du projet
 
-        Pour exécuter le code, tapez dans la console "php battleship.php"
+        Ce projet comprend deux scripts :
 
-        Ce projet PHP fournit une fonction qui crée et affiche une grille représentant un plateau de jeu avec
-        des navires placés à des coordonnées spécifiées. Les dimensions de la grille sont déterminées par les paramètres
-        $x (nombre de colonnes) et $y (nombre de lignes). Les navires sont marqués par un "X"
-        sur la grille en fonction des coordonnées fournies dans le tableau $ships.
+            1) bsq.php : Un script PHP qui résout le problème du "Plus Grand Carré" (BSQ). Il lit une carte à partir d'un fichier et trouve le plus grand carré qui peut être placé sur la carte sans chevaucher d'obstacles.
 
-    Aperçu de la fonction
+            2) generator.pl : Un script Perl qui génère des cartes aléatoires pour tester le script bsq.php.
 
-        La fonction colle($x, $y, array $ships = []) effectue les actions suivantes :
+    1. bsq.php
+    Fonctionnalité :
 
-        Validation des entrées : Vérifie que $x et $y sont supérieurs à zéro. Sinon, la fonction se termine sans exécuter davantage.
+        Gestion des entrées :
 
-        Initialisation de la grille : Crée un tableau bidimensionnel $setka rempli d'espaces (" "), représentant un plateau de jeu vide.
+            Le script attend un argument en ligne de commande : le nom du fichier de la carte à traiter.
+        
+            Si le nombre d'arguments est incorrect ou si le fichier ne peut pas être ouvert, il affiche un message d'erreur et se termine.
+        
+        Traitement de la carte :
 
-        Placement des navires : Parcourt le tableau $ships et place un "X" sur la grille à chaque coordonnée valide. Les coordonnées en dehors des limites de la grille sont ignorées.
+            Lit la première ligne du fichier pour déterminer le nombre de lignes ($rows).
+        
+            Lit les lignes suivantes pour construire la carte ($board), qui est un tableau 2D de caractères où :
+        
+            '.' représente un espace vide.
+        
+            'o' représente un obstacle.
+        
+        Algorithme :
 
-        Affichage de la grille : Affiche la grille avec des bordures en utilisant des caractères ASCII, montrant la position des navires.
+            Initialise un tableau 2D $sizes pour stocker la taille du plus grand carré se terminant à chaque position.
+            
+            Itère sur chaque cellule de la carte :
+            
+                Si la cellule est un espace vide ('.') :
+            
+                    Pour la première ligne ou colonne, définit $sizes[$i][$j] = 1.
+                
+                    Sinon, calcule la valeur minimale parmi les cellules voisines ($sizes[$i-1][$j], $sizes[$i][$j-1], $sizes[$i-1][$j-1]) et ajoute 1.
+                
+                Suit la taille maximale du carré trouvé ($maxSize) et ses coordonnées en bas à droite ($maxI, $maxJ).
+            
+            Remplace le plus grand carré trouvé sur la carte par des caractères 'x'.
+            
+        Sortie :
 
-    Exemple d'utilisation
+            Affiche la carte dans la console avec le plus grand carré marqué par des 'x'.
+        
+        Exemple d'utilisation :
 
-        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
+            php bsq.php map.txt
+    
+    2. generator.pl
+    Fonctionnalité :
 
-        Cet exemple crée une grille de 5 colonnes sur 3 lignes, plaçant des navires aux coordonnées (2,1), (2,1), (1,2) et (1,7).
-        Notez que la coordonnée (1,7) est en dehors des limites de la grille et sera ignorée.
+        Gestion des entrées :
 
-    Exemple de sortie
-        +---+---+---+---+---+
-        |   |   |   |   |   |
-        +---+---+---+---+---+
-        | X |   | X |   |   |
-        +---+---+---+---+---+
-        |   | X |   |   |   |
-        +---+---+---+---+---+
+            Attend trois arguments en ligne de commande : largeur (x), hauteur (y) et densité (density).
+        
+        Génération de la carte :
+
+            Génère une carte de dimensions x par y.
+            
+            Remplit la carte avec :
+            
+                '.' représentant des espaces vides.
+                
+                'o' représentant des obstacles.
+            
+            Le paramètre density contrôle la probabilité de placement d'un obstacle.
+            
+        Sortie :
+
+            Écrit la carte générée dans un fichier nommé 'test'.
+            
+            Affiche un message indiquant que le résultat est enregistré.
+        
+    Exemple d'utilisation :
+    
+    perl generator.pl 10 10 3
+    Cette commande génère une carte de 10x10 avec une densité de 3.

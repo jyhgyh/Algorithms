@@ -2,38 +2,48 @@ English:
 
     Project Description
 
-        To execute the code, type "php battleship.php" in the console.
+        This PHP script is designed to generate a sprite image by combining multiple PNG images from a specified directory
+        (default is "assets_folder"). It also generates a corresponding CSS file to facilitate the use of the sprite in web development.
+        The script can process images recursively through subdirectories if the recursive option is enabled.
 
-        This PHP project provides a function that creates and displays a grid representing a game board with ships
-        placed at specified coordinates. The grid's dimensions are determined by the parameters
-        $x (number of columns) and $y (number of rows). Ships are marked with an "X"        
-        on the grid based on the coordinates provided in the $ships array.
+    Functionality:
 
-    Function Overview
+        Command-Line Options:
 
-        The function colle($x, $y, array $ships = []) performs the following steps:
+            -r or --recursive: Enable recursive scanning of directories.
+            
+            -i or --output-image: Specify the name of the output sprite image (default is sprite.png).
+            
+            -s or --output-style: Specify the name of the output CSS file (default is style.css).
         
-        Input Validation: Checks if $x and $y are greater than zero. If not, the function returns without executing further.
+        Image Scanning:
+
+            The scanImages($directory) function scans the specified directory for PNG images.
+            
+            If the recursive option is enabled, it scans subdirectories as well.
+            
+            Collects all found image paths into the $images array.
         
-        Grid Initialization: Creates a two-dimensional array $grid filled with spaces (" "), representing an empty game board.
+        Sprite Generation:
+
+            The calculateSpriteSize($images) function calculates the total width and maximum height required for the sprite image by summing the widths of all images and taking the maximum height.
+
+            The createSprite($images, $width, $height, $outputImage) function creates a new true color image ($sprite) with the calculated dimensions.
+
+            It then copies each individual image onto the sprite image horizontally, updating the x-coordinate accordingly.
+
+        CSS Generation:
+
+            The generateCSS($width, $height, $outputStyle) function generates a basic CSS file that includes a class .img with the dimensions of the sprite image.
+    
+    Usage Example:
+    
+        php sprite_generator.php -r -i custom_sprite.png -s custom_style.css
+    
+    This command will:
+
+        Enable recursive scanning of directories.
         
-        Ship Placement: Iterates over the $ships array and places an "X" on the grid at each valid coordinate. Coordinates outside the grid boundaries are ignored.
+        Generate a sprite image named custom_sprite.png.
         
-        Grid Display: Outputs the grid with borders using ASCII characters, showing the placement of ships.
-
-    Usage Example
-
-        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
-
-        This example creates a grid with 5 columns and 3 rows, placing ships at the coordinates (2,1), (2,1), (1,2), and (1,7).
-
-        Note that the coordinate (1,7) is outside the grid bounds and will be ignored.
-
-    Sample Output
-        +---+---+---+---+---+
-        |   |   |   |   |   |
-        +---+---+---+---+---+
-        | X |   | X |   |   |
-        +---+---+---+---+---+
-        |   | X |   |   |   |
-        +---+---+---+---+---+
+        Generate a CSS file named custom_style.css.

@@ -2,37 +2,48 @@ Français:
 
     Description du projet
 
-        Pour exécuter le code, tapez dans la console "php battleship.php"
+        Ce script PHP est conçu pour générer une image sprite en combinant plusieurs images PNG d'un répertoire spécifié (par défaut "assets_folder").
+        Il génère également un fichier CSS correspondant pour faciliter l'utilisation du sprite en développement web.
+        Le script peut traiter les images de manière récursive dans les sous-répertoires si l'option récursive est activée.
 
-        Ce projet PHP fournit une fonction qui crée et affiche une grille représentant un plateau de jeu avec
-        des navires placés à des coordonnées spécifiées. Les dimensions de la grille sont déterminées par les paramètres
-        $x (nombre de colonnes) et $y (nombre de lignes). Les navires sont marqués par un "X"
-        sur la grille en fonction des coordonnées fournies dans le tableau $ships.
+    Fonctionnalité :
 
-    Aperçu de la fonction
+        Options en ligne de commande :
 
-        La fonction colle($x, $y, array $ships = []) effectue les actions suivantes :
+            -r ou --recursive : Active le balayage récursif des répertoires.
+        
+            -i ou --output-image : Spécifie le nom de l'image sprite de sortie (par défaut sprite.png).
+        
+            -s ou --output-style : Spécifie le nom du fichier CSS de sortie (par défaut style.css).
+        
+        Balayage des images :
 
-        Validation des entrées : Vérifie que $x et $y sont supérieurs à zéro. Sinon, la fonction se termine sans exécuter davantage.
+            La fonction scanImages($directory) scanne le répertoire spécifié à la recherche d'images PNG.
+            
+            Si l'option récursive est activée, elle scanne également les sous-répertoires.
+            
+            Elle collecte tous les chemins des images trouvées dans le tableau $images.
+        
+        Génération du sprite :
 
-        Initialisation de la grille : Crée un tableau bidimensionnel $setka rempli d'espaces (" "), représentant un plateau de jeu vide.
+            La fonction calculateSpriteSize($images) calcule la largeur totale et la hauteur maximale nécessaires pour l'image sprite en additionnant les largeurs de toutes les images et en prenant la hauteur maximale.
 
-        Placement des navires : Parcourt le tableau $ships et place un "X" sur la grille à chaque coordonnée valide. Les coordonnées en dehors des limites de la grille sont ignorées.
+            La fonction createSprite($images, $width, $height, $outputImage) crée une nouvelle image en vraies couleurs ($sprite) avec les dimensions calculées.
 
-        Affichage de la grille : Affiche la grille avec des bordures en utilisant des caractères ASCII, montrant la position des navires.
+            Elle copie ensuite chaque image individuelle sur le sprite horizontalement, en mettant à jour la coordonnée x en conséquence.
 
-    Exemple d'utilisation
+        Génération du CSS :
 
-        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
+            La fonction generateCSS($width, $height, $outputStyle) génère un fichier CSS basique qui inclut une classe .img avec les dimensions de l'image sprite.
+        
+    Exemple d'utilisation :
 
-        Cet exemple crée une grille de 5 colonnes sur 3 lignes, plaçant des navires aux coordonnées (2,1), (2,1), (1,2) et (1,7).
-        Notez que la coordonnée (1,7) est en dehors des limites de la grille et sera ignorée.
+        php sprite_generator.php -r -i custom_sprite.png -s custom_style.css
+    
+    Cette commande va :
 
-    Exemple de sortie
-        +---+---+---+---+---+
-        |   |   |   |   |   |
-        +---+---+---+---+---+
-        | X |   | X |   |   |
-        +---+---+---+---+---+
-        |   | X |   |   |   |
-        +---+---+---+---+---+
+        Activer le balayage récursif des répertoires.
+        
+        Générer une image sprite nommée custom_sprite.png.
+        
+        Générer un fichier CSS nommé custom_style.css.
