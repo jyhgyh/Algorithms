@@ -1,0 +1,38 @@
+Français:
+
+    Description du projet
+
+        Pour exécuter le code, tapez dans la console "php battleship.php"
+
+        Ce projet PHP fournit une fonction qui crée et affiche une grille représentant un plateau de jeu avec
+        des navires placés à des coordonnées spécifiées. Les dimensions de la grille sont déterminées par les paramètres
+        $x (nombre de colonnes) et $y (nombre de lignes). Les navires sont marqués par un "X"
+        sur la grille en fonction des coordonnées fournies dans le tableau $ships.
+
+    Aperçu de la fonction
+
+        La fonction colle($x, $y, array $ships = []) effectue les actions suivantes :
+
+        Validation des entrées : Vérifie que $x et $y sont supérieurs à zéro. Sinon, la fonction se termine sans exécuter davantage.
+
+        Initialisation de la grille : Crée un tableau bidimensionnel $setka rempli d'espaces (" "), représentant un plateau de jeu vide.
+
+        Placement des navires : Parcourt le tableau $ships et place un "X" sur la grille à chaque coordonnée valide. Les coordonnées en dehors des limites de la grille sont ignorées.
+
+        Affichage de la grille : Affiche la grille avec des bordures en utilisant des caractères ASCII, montrant la position des navires.
+
+    Exemple d'utilisation
+
+        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
+
+        Cet exemple crée une grille de 5 colonnes sur 3 lignes, plaçant des navires aux coordonnées (2,1), (2,1), (1,2) et (1,7).
+        Notez que la coordonnée (1,7) est en dehors des limites de la grille et sera ignorée.
+
+    Exemple de sortie
+        +---+---+---+---+---+
+        |   |   |   |   |   |
+        +---+---+---+---+---+
+        | X |   | X |   |   |
+        +---+---+---+---+---+
+        |   | X |   |   |   |
+        +---+---+---+---+---+

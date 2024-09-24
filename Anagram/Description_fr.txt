@@ -1,0 +1,56 @@
+Français:
+
+    Description du projet
+
+        Ce script PHP est conçu pour trouver des anagrammes d'un mot donné en supprimant un nombre spécifié de lettres.
+        Il prend deux arguments en ligne de commande :
+
+            1) Mot d'entrée : Le mot à partir duquel les anagrammes seront générés.
+            2) Nombre (nb) : Le nombre de lettres à supprimer du mot d'entrée pour former de nouvelles combinaisons.
+
+        Le script génère toutes les combinaisons possibles du mot en supprimant nb lettres et compare ces combinaisons 
+        avec un fichier de dictionnaire (anagram-master-dictionnaire.txt) pour trouver des anagrammes valides.
+
+    Aperçu du code
+
+        Gestion des entrées :
+
+            Récupère le mot d'entrée et le nombre nb à partir des arguments de la ligne de commande.
+           
+            Vérifie que nb est non négatif et inférieur à la longueur du mot d'entrée.
+        
+        Fonctions :
+
+            generate_combinations($word, $nb) : Génère toutes les combinaisons possibles du mot en supprimant nb lettres.
+
+                Utilise la fonction combinations() pour obtenir toutes les combinaisons d'index.
+                
+                Construit de nouvelles combinaisons de mots en excluant les lettres aux indices spécifiés.
+        
+            combinations($array, $length, $start_index = 0, $current = []) : Génère récursivement toutes les combinaisons d'une certaine longueur à partir d'un tableau.
+
+            are_anagrams($word1, $word2) : Vérifie si deux mots sont des anagrammes en comparant le nombre de leurs caractères.
+
+        Chargement du dictionnaire :
+
+            Ouvre et lit le fichier de dictionnaire anagram-master-dictionnaire.txt.
+          
+            Stocke tous les mots du dictionnaire dans un tableau pour comparaison.
+        
+        Détection d'anagrammes :
+
+            Itère sur toutes les combinaisons générées.
+        
+            Vérifie chaque combinaison par rapport à tous les mots du dictionnaire pour trouver des anagrammes valides.
+        
+            Stocke les anagrammes dans un tableau associatif pour garantir leur unicité.
+        
+        Sortie :
+
+            Affiche tous les anagrammes uniques trouvés.
+        
+        Exemple d'utilisation
+
+            php script.php "exemple" 2
+            Cette commande générera toutes les combinaisons du mot "exemple" en supprimant 2 lettres et affichera tous les anagrammes trouvés dans le dictionnaire.
+            

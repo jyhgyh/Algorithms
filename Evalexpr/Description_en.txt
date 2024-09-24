@@ -1,0 +1,39 @@
+English:
+
+    Project Description
+
+        To execute the code, type "php battleship.php" in the console.
+
+        This PHP project provides a function that creates and displays a grid representing a game board with ships
+        placed at specified coordinates. The grid's dimensions are determined by the parameters
+        $x (number of columns) and $y (number of rows). Ships are marked with an "X"        
+        on the grid based on the coordinates provided in the $ships array.
+
+    Function Overview
+
+        The function colle($x, $y, array $ships = []) performs the following steps:
+        
+        Input Validation: Checks if $x and $y are greater than zero. If not, the function returns without executing further.
+        
+        Grid Initialization: Creates a two-dimensional array $grid filled with spaces (" "), representing an empty game board.
+        
+        Ship Placement: Iterates over the $ships array and places an "X" on the grid at each valid coordinate. Coordinates outside the grid boundaries are ignored.
+        
+        Grid Display: Outputs the grid with borders using ASCII characters, showing the placement of ships.
+
+    Usage Example
+
+        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
+
+        This example creates a grid with 5 columns and 3 rows, placing ships at the coordinates (2,1), (2,1), (1,2), and (1,7).
+
+        Note that the coordinate (1,7) is outside the grid bounds and will be ignored.
+
+    Sample Output
+        +---+---+---+---+---+
+        |   |   |   |   |   |
+        +---+---+---+---+---+
+        | X |   | X |   |   |
+        +---+---+---+---+---+
+        |   | X |   |   |   |
+        +---+---+---+---+---+
