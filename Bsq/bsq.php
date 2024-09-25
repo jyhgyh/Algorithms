@@ -13,7 +13,7 @@ if (!$file) {
 
 $rows = intval(fgets($file));
 $board = [];
-while (($line = fgets($file)) !== false) { 
+while (($line = fgets($file)) !== false) {
     $board[] = trim($line);
 }
 fclose($file);
@@ -31,7 +31,7 @@ for ($i = 0; $i < $rows; $i++) {
             if ($i == 0 || $j == 0) {
                 $sizes[$i][$j] = 1;
             } else {
-                $sizes[$i][$j] = min($sizes[$i-1][$j], $sizes[$i][$j-1], $sizes[$i-1][$j-1]) + 1;
+                $sizes[$i][$j] = min($sizes[$i - 1][$j], $sizes[$i][$j - 1], $sizes[$i - 1][$j - 1]) + 1;
             }
             if ($sizes[$i][$j] > $maxSize) {
                 $maxSize = $sizes[$i][$j];
@@ -51,4 +51,3 @@ for ($i = $maxI; $i > $maxI - $maxSize; $i--) {
 foreach ($board as $line) {
     echo $line . "\n";
 }
-?>

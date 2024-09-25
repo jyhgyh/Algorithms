@@ -3,8 +3,9 @@ English:
     Project Description
 
         This PHP script is designed to generate a sprite image by combining multiple PNG images from a specified directory
-        (default is "assets_folder"). It also generates a corresponding CSS file to facilitate the use of the sprite in web development.
-        The script can process images recursively through subdirectories if the recursive option is enabled.
+        (default is "assets_folder"). It also generates a corresponding CSS file to facilitate the use of the sprite 
+        in web development. The script can process images recursively through subdirectories if the recursive option
+        is enabled.
 
     Functionality:
 
@@ -26,15 +27,18 @@ English:
         
         Sprite Generation:
 
-            The calculateSpriteSize($images) function calculates the total width and maximum height required for the sprite image by summing the widths of all images and taking the maximum height.
+            The calculateSpriteSize($images) function calculates the total width and maximum height required for 
+            the sprite image by summing the widths of all images and taking the maximum height.
 
-            The createSprite($images, $width, $height, $outputImage) function creates a new true color image ($sprite) with the calculated dimensions.
+            The createSprite($images, $width, $height, $outputImage) function creates a new true color image ($sprite) 
+            with the calculated dimensions.
 
             It then copies each individual image onto the sprite image horizontally, updating the x-coordinate accordingly.
 
         CSS Generation:
 
-            The generateCSS($width, $height, $outputStyle) function generates a basic CSS file that includes a class .img with the dimensions of the sprite image.
+            The generateCSS($width, $height, $outputStyle) function generates a basic CSS file that includes 
+            a class .img with the dimensions of the sprite image.
     
     Usage Example:
     

@@ -4,7 +4,8 @@ Français:
 
         Ce projet comprend deux scripts :
 
-            1) bsq.php : Un script PHP qui résout le problème du "Plus Grand Carré" (BSQ). Il lit une carte à partir d'un fichier et trouve le plus grand carré qui peut être placé sur la carte sans chevaucher d'obstacles.
+            1) bsq.php : Un script PHP qui résout le problème du "Plus Grand Carré" (BSQ). Il lit une carte à partir 
+            d'un fichier et trouve le plus grand carré qui peut être placé sur la carte sans chevaucher d'obstacles.
 
             2) generator.pl : Un script Perl qui génère des cartes aléatoires pour tester le script bsq.php.
 
@@ -15,7 +16,8 @@ Français:
 
             Le script attend un argument en ligne de commande : le nom du fichier de la carte à traiter.
         
-            Si le nombre d'arguments est incorrect ou si le fichier ne peut pas être ouvert, il affiche un message d'erreur et se termine.
+            Si le nombre d'arguments est incorrect ou si le fichier ne peut pas être ouvert, il affiche un message 
+            d'erreur et se termine.
         
         Traitement de la carte :
 
@@ -37,7 +39,8 @@ Français:
             
                     Pour la première ligne ou colonne, définit $sizes[$i][$j] = 1.
                 
-                    Sinon, calcule la valeur minimale parmi les cellules voisines ($sizes[$i-1][$j], $sizes[$i][$j-1], $sizes[$i-1][$j-1]) et ajoute 1.
+                    Sinon, calcule la valeur minimale parmi les cellules voisines 
+                    ($sizes[$i-1][$j], $sizes[$i][$j-1], $sizes[$i-1][$j-1]) et ajoute 1.
                 
                 Suit la taille maximale du carré trouvé ($maxSize) et ses coordonnées en bas à droite ($maxI, $maxJ).
             

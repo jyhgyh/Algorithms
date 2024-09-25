@@ -27,7 +27,8 @@ English:
         
                 Constructs new word combinations by excluding letters at the specified indices.
         
-            combinations($array, $length, $start_index = 0, $current = []): Recursively generates all combinations of a certain length from an array.
+            combinations($array, $length, $start_index = 0, $current = []): Recursively generates all combinations of
+            a certain length from an array.
 
             are_anagrams($word1, $word2): Checks if two words are anagrams by comparing their character counts.
 
@@ -52,4 +53,5 @@ English:
         Usage Example
 
             php script.php "example" 2
-            This command will generate all combinations of the word "example" by removing 2 letters and will print out any anagrams found in the dictionary.
+            This command will generate all combinations of the word "example" by removing 2 letters and will print 
+            out any anagrams found in the dictionary.

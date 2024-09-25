@@ -2,9 +2,10 @@ Français:
 
     Description du projet
 
-        Ce script PHP est conçu pour générer une image sprite en combinant plusieurs images PNG d'un répertoire spécifié (par défaut "assets_folder").
-        Il génère également un fichier CSS correspondant pour faciliter l'utilisation du sprite en développement web.
-        Le script peut traiter les images de manière récursive dans les sous-répertoires si l'option récursive est activée.
+        Ce script PHP est conçu pour générer une image sprite en combinant plusieurs images PNG d'un répertoire spécifié 
+        (par défaut "assets_folder"). Il génère également un fichier CSS correspondant pour faciliter l'utilisation 
+        du sprite en développement web. Le script peut traiter les images de manière récursive dans 
+        les sous-répertoires si l'option récursive est activée.
 
     Fonctionnalité :
 
@@ -26,15 +27,19 @@ Français:
         
         Génération du sprite :
 
-            La fonction calculateSpriteSize($images) calcule la largeur totale et la hauteur maximale nécessaires pour l'image sprite en additionnant les largeurs de toutes les images et en prenant la hauteur maximale.
+            La fonction calculateSpriteSize($images) calcule la largeur totale et la hauteur maximale nécessaires pour 
+            l'image sprite en additionnant les largeurs de toutes les images et en prenant la hauteur maximale.
 
-            La fonction createSprite($images, $width, $height, $outputImage) crée une nouvelle image en vraies couleurs ($sprite) avec les dimensions calculées.
+            La fonction createSprite($images, $width, $height, $outputImage) crée une nouvelle image en vraies couleurs 
+            ($sprite) avec les dimensions calculées.
 
-            Elle copie ensuite chaque image individuelle sur le sprite horizontalement, en mettant à jour la coordonnée x en conséquence.
+            Elle copie ensuite chaque image individuelle sur le sprite horizontalement, en mettant à jour 
+            la coordonnée x en conséquence.
 
         Génération du CSS :
 
-            La fonction generateCSS($width, $height, $outputStyle) génère un fichier CSS basique qui inclut une classe .img avec les dimensions de l'image sprite.
+            La fonction generateCSS($width, $height, $outputStyle) génère un fichier CSS basique qui inclut 
+            une classe .img avec les dimensions de l'image sprite.
         
     Exemple d'utilisation :
 

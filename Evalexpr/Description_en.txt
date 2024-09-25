@@ -3,7 +3,8 @@ English:
     Project Description
 
         This PHP project is a simple calculator that evaluates mathematical expressions provided as command-line arguments.
-        It supports basic arithmetic operations, including addition, subtraction, multiplication, division, and parentheses for grouping.
+        It supports basic arithmetic operations, including addition, subtraction, multiplication, division,
+        and parentheses for grouping.
 
     Functionality
 
@@ -11,7 +12,8 @@ English:
 
             The script accepts a mathematical expression as the first command-line argument ($argv[1]).
             
-            It sanitizes the input by removing any invalid characters using preg_replace, allowing only numbers, operators, and parentheses.
+            It sanitizes the input by removing any invalid characters using preg_replace, allowing only numbers, 
+            operators, and parentheses.
         
         Expression Parsing
 

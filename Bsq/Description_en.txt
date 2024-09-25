@@ -4,7 +4,8 @@ English:
 
         This project consists of two scripts:
 
-            1) bsq.php: A PHP script that solves the "Biggest Square" (BSQ) problem. It reads a map from a file and finds the largest square that can be placed on the map without overlapping any obstacles.
+            1) bsq.php: A PHP script that solves the "Biggest Square" (BSQ) problem. It reads a map from a file 
+            and finds the largest square that can be placed on the map without overlapping any obstacles.
 
             2) generator.pl: A Perl script that generates random maps for testing the bsq.php script.
 
@@ -37,7 +38,8 @@ English:
 
                     For the first row or column, sets $sizes[$i][$j] = 1.
 
-                    Otherwise, calculates the minimal value among the neighboring cells ($sizes[$i-1][$j], $sizes[$i][$j-1], $sizes[$i-1][$j-1]) and adds 1.
+                    Otherwise, calculates the minimal value among the neighboring cells
+                    ($sizes[$i-1][$j], $sizes[$i][$j-1], $sizes[$i-1][$j-1]) and adds 1.
 
                 Keeps track of the maximum square size found ($maxSize) and its bottom-right coordinates ($maxI, $maxJ).
 

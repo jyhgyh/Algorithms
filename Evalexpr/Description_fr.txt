@@ -2,7 +2,8 @@ Français:
 
     Description du projet
 
-        Ce projet PHP est une calculatrice simple qui évalue des expressions mathématiques fournies en tant qu'arguments de ligne de commande.
+        Ce projet PHP est une calculatrice simple qui évalue des expressions mathématiques fournies en tant qu'arguments
+        de ligne de commande.
         Elle prend en charge les opérations arithmétiques de base, y compris l'addition, la soustraction,
         la multiplication, la division et les parenthèses pour le regroupement.
 
@@ -12,7 +13,8 @@ Français:
 
             Le script accepte une expression mathématique en tant que premier argument de ligne de commande ($argv[1]).
             
-            Il nettoie l'entrée en supprimant tout caractère invalide à l'aide de preg_replace, ne permettant que les chiffres, les opérateurs et les parenthèses.
+            Il nettoie l'entrée en supprimant tout caractère invalide à l'aide de preg_replace, ne permettant 
+            que les chiffres, les opérateurs et les parenthèses.
         
         Analyse de l'expression
 
@@ -28,7 +30,8 @@ Français:
 
                     Utilise des expressions régulières pour évaluer récursivement les expressions entre parenthèses.
                     
-                    Remplace les parenthèses les plus internes par leur résultat évalué jusqu'à ce qu'il n'y ait plus de parenthèses.
+                    Remplace les parenthèses les plus internes par leur résultat évalué jusqu'à ce qu'il n'y ait 
+                    plus de parenthèses.
         
                 Multiplication et division
 
@@ -58,7 +61,8 @@ Français:
 
                 Hérite de TestCase.
                 
-                Contient la méthode testEvalExpr(), qui exécute plusieurs cas de test pour vérifier la justesse de la calculatrice.
+                Contient la méthode testEvalExpr(), qui exécute plusieurs cas de test pour vérifier la justesse 
+                de la calculatrice.
     
     Exemple d'utilisation
 
