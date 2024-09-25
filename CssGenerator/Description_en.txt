@@ -6,6 +6,18 @@ English:
         (default is "assets_folder"). It also generates a corresponding CSS file to facilitate the use of the sprite 
         in web development. The script can process images recursively through subdirectories if the recursive option
         is enabled.
+    
+    Usage Example:
+    
+        php sprite_generator.php -r -i custom_sprite.png -s custom_style.css
+    
+    This command will:
+
+        Enable recursive scanning of directories.
+        
+        Generate a sprite image named custom_sprite.png.
+        
+        Generate a CSS file named custom_style.css.
 
     Functionality:
 
@@ -39,15 +51,3 @@ English:
 
             The generateCSS($width, $height, $outputStyle) function generates a basic CSS file that includes 
             a class .img with the dimensions of the sprite image.
-    
-    Usage Example:
-    
-        php sprite_generator.php -r -i custom_sprite.png -s custom_style.css
-    
-    This command will:
-
-        Enable recursive scanning of directories.
-        
-        Generate a sprite image named custom_sprite.png.
-        
-        Generate a CSS file named custom_style.css.
