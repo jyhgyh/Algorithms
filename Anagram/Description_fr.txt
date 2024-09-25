@@ -10,6 +10,12 @@ Français:
 
         Le script génère toutes les combinaisons possibles du mot en supprimant nb lettres et compare ces combinaisons 
         avec un fichier de dictionnaire (anagram-master-dictionnaire.txt) pour trouver des anagrammes valides.
+        
+    Exemple d'utilisation
+
+        php anagram.php marie 1
+        Cette commande générera toutes les combinaisons du mot "exemple" en supprimant 1 lettres et affichera 
+        tous les anagrammes trouvés dans le dictionnaire.
 
     Aperçu du code
 
@@ -49,10 +55,4 @@ Français:
         Sortie :
 
             Affiche tous les anagrammes uniques trouvés.
-        
-        Exemple d'utilisation
-
-            php script.php "exemple" 2
-            Cette commande générera toutes les combinaisons du mot "exemple" en supprimant 2 lettres et affichera 
-            tous les anagrammes trouvés dans le dictionnaire.
             

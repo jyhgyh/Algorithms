@@ -9,6 +9,13 @@ Français:
 
             2) generator.pl : Un script Perl qui génère des cartes aléatoires pour tester le script bsq.php.
 
+        Exemple d'utilisation :
+
+            perl generator.pl 10 10 3
+            Cette commande génère une carte de 10x10 avec une densité de 3.
+
+            Utilisez ensuite la commande (php bsq.php test) pour trouver le plus grand carré.
+
     1. bsq.php
     Fonctionnalité :
 
@@ -79,7 +86,3 @@ Français:
             
             Affiche un message indiquant que le résultat est enregistré.
         
-    Exemple d'utilisation :
-    
-    perl generator.pl 10 10 3
-    Cette commande génère une carte de 10x10 avec une densité de 3.

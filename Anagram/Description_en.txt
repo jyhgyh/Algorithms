@@ -10,6 +10,12 @@ English:
             
         The script generates all possible combinations of the input word by removing nb letters and checks these 
         combinations against a dictionary file (anagram-master-dictionnaire.txt) to find valid anagrams.
+      
+    Usage Example
+
+        php anagram.php marie 1
+        This command will generate all combinations of the word "example" by removing 1 letters and will print 
+        out any anagrams found in the dictionary.
 
     Code Overview
 
@@ -49,9 +55,3 @@ English:
         Output:
 
             Prints out all unique anagrams found.
-        
-        Usage Example
-
-            php script.php "example" 2
-            This command will generate all combinations of the word "example" by removing 2 letters and will print 
-            out any anagrams found in the dictionary.

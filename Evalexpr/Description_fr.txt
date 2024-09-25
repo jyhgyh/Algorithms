@@ -7,6 +7,14 @@ Français:
         Elle prend en charge les opérations arithmétiques de base, y compris l'addition, la soustraction,
         la multiplication, la division et les parenthèses pour le regroupement.
 
+    Exemple d'utilisation
+
+        1) php calculator.php « 2+(3*4)-5 »
+           Cette commande affichera le résultat de l'expression 2+(3*4)-5, soit 9.
+
+        2) php test.php.
+           Cette commande affichera le résultat de tous les tests automatiques pour calculator.php
+
     Fonctionnalité
 
         Gestion des entrées
@@ -63,8 +71,3 @@ Français:
                 
                 Contient la méthode testEvalExpr(), qui exécute plusieurs cas de test pour vérifier la justesse 
                 de la calculatrice.
-    
-    Exemple d'utilisation
-
-    php calculator.php "2+(3*4)-5"
-    Cette commande affichera le résultat de l'expression 2+(3*4)-5, qui est 9.

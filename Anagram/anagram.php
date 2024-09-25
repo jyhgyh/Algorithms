@@ -70,7 +70,7 @@ if ($handle) {
     foreach ($combinations as $combo) {
         foreach ($dictionary as $word) {
             if (are_anagrams($combo, $word) && $combo !== $word) {
-                $anagrams[$word] = true; // Используем ассоциативный массив для уникальности
+                $anagrams[$word] = true;
             }
         }
     }

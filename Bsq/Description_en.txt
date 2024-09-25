@@ -9,6 +9,13 @@ English:
 
             2) generator.pl: A Perl script that generates random maps for testing the bsq.php script.
 
+    Usage Example:
+
+        This command generates a 10x10 map with a density of 3.
+        perl generator.pl 10 10 3
+
+        Then use the command (php bsq.php test) to find the largest square.
+        
     1. bsq.php
     Functionality:
 
@@ -77,8 +84,3 @@ English:
             Writes the generated map to a file named 'test'.
 
             Prints a message indicating that the result is saved.
-
-    Usage Example:
-
-        This command generates a 10x10 map with a density of 3.
-        perl generator.pl 10 10 3

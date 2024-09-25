@@ -6,6 +6,14 @@ English:
         It supports basic arithmetic operations, including addition, subtraction, multiplication, division,
         and parentheses for grouping.
 
+    Example of use
+
+        1) php calculator.php “ 2+(3*4)-5 ”
+           This command displays the result of the expression 2+(3*4)-5, i.e. 9.
+
+        2) php test.php.
+           This command displays the results of all automatic tests for calculator.php
+
     Functionality
 
         Input Handling
