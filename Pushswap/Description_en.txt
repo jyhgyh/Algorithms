@@ -49,7 +49,8 @@ English:
 
             The script accepts a series of numbers and a set of operations as command-line arguments.
         
-            The numbers are taken from the command-line arguments, excluding the last argument, which is the list of operations.
+            The numbers are taken from the command-line arguments, excluding the last argument, which is the
+            list of operations.
         
             The operations are specified as a space-separated string in the last command-line argument.
     
@@ -81,9 +82,11 @@ English:
     
         Processing Operations
 
-            The script reads the operations and applies them sequentially to the arrays $la and $lb using a foreach loop and a switch statement.
+            The script reads the operations and applies them sequentially to the arrays $la and $lb using
+            a foreach loop and a switch statement.
     
         Output
 
-            After all operations are applied, the script prints the contents of $la and $lb using the printLists($la, $lb) function.
+            After all operations are applied, the script prints the contents of $la and $lb using
+            the printLists($la, $lb)function.
     

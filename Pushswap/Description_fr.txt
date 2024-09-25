@@ -41,7 +41,8 @@ Français:
                 
                     lb:
                 
-                Ainsi, après avoir appliqué ces opérations, le tableau $la est trié dans l'ordre croissant et $lb reste vide.
+                Ainsi, après avoir appliqué ces opérations, le tableau $la est trié dans l'ordre croissant
+                et $lb reste vide.
 
     Fonctionnalité
 
@@ -49,9 +50,11 @@ Français:
 
             Le script accepte une série de nombres et un ensemble d'opérations en tant qu'arguments de ligne de commande.
         
-            Les nombres sont extraits des arguments de ligne de commande, à l'exclusion du dernier argument, qui est la liste des opérations.
+            Les nombres sont extraits des arguments de ligne de commande, à l'exclusion du dernier argument,
+            qui est la liste des opérations.
         
-            Les opérations sont spécifiées comme une chaîne séparée par des espaces dans le dernier argument de ligne de commande.
+            Les opérations sont spécifiées comme une chaîne séparée par des espaces dans le dernier argument
+            de ligne de commande.
     
         Opérations
 
@@ -81,9 +84,11 @@ Français:
     
         Traitement des opérations
 
-            Le script lit les opérations et les applique séquentiellement aux tableaux $la et $lb en utilisant une boucle foreach et une instruction switch.
+            Le script lit les opérations et les applique séquentiellement aux tableaux $la et $lb
+            en utilisant une boucle foreach et une instruction switch.
     
         Sortie
 
-            Après avoir appliqué toutes les opérations, le script affiche le contenu de $la et $lb en utilisant la fonction printLists($la, $lb).
+            Après avoir appliqué toutes les opérations, le script affiche le contenu de $la et $lb
+            en utilisant la fonction printLists($la, $lb).
     
