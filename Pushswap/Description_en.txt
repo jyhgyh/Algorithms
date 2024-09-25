@@ -2,38 +2,88 @@ English:
 
     Project Description
 
-        To execute the code, type "php battleship.php" in the console.
-
-        This PHP project provides a function that creates and displays a grid representing a game board with ships
-        placed at specified coordinates. The grid's dimensions are determined by the parameters
-        $x (number of columns) and $y (number of rows). Ships are marked with an "X"        
-        on the grid based on the coordinates provided in the $ships array.
-
-    Function Overview
-
-        The function colle($x, $y, array $ships = []) performs the following steps:
-        
-        Input Validation: Checks if $x and $y are greater than zero. If not, the function returns without executing further.
-        
-        Grid Initialization: Creates a two-dimensional array $grid filled with spaces (" "), representing an empty game board.
-        
-        Ship Placement: Iterates over the $ships array and places an "X" on the grid at each valid coordinate. Coordinates outside the grid boundaries are ignored.
-        
-        Grid Display: Outputs the grid with borders using ASCII characters, showing the placement of ships.
+        This PHP script processes a list of numbers and manipulates them using a set of operations
+        that simulate stack movements and sorting techniques. The script applies operations such as swapping,
+        pushing, and rotating elements between two arrays ($la and $lb). The primary goal is to rearrange
+        the numbers through these operations.
 
     Usage Example
 
-        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
+        Supposons que vous exécutez la commande suivante :
 
-        This example creates a grid with 5 columns and 3 rows, placing ships at the coordinates (2,1), (2,1), (1,2), and (1,7).
+            php script.php 3 2 1 "sa ra ra"
+                
+                The numbers 3 2 1 are stored in $la.
 
-        Note that the coordinate (1,7) is outside the grid bounds and will be ignored.
+                The operations "sa ra ra" will be applied in order:
 
-    Sample Output
-        +---+---+---+---+---+
-        |   |   |   |   |   |
-        +---+---+---+---+---+
-        | X |   | X |   |   |
-        +---+---+---+---+---+
-        |   | X |   |   |   |
-        +---+---+---+---+---+
+                    sa: Swaps the first two elements of $la.
+
+                Before operation: $la = [3, 2, 1]
+                
+                After operation: $la = [2, 3, 1]
+                
+                    ra: Rotates $la upwards by moving the first element to the end.
+
+                Before operation: $la = [2, 3, 1]
+                
+                After operation: $la = [3, 1, 2]
+                
+                    ra: Rotates $la upwards again.
+
+                Before operation: $la = [3, 1, 2]
+                
+                After operation: $la = [1, 2, 3]
+                
+                The script will then output:
+
+                    la: 1 2 3
+                
+                    lb:
+                
+                After applying these operations, the array $la is sorted in ascending order, and $lb remains empty.
+
+    Functionality
+
+        Input Handling
+
+            The script accepts a series of numbers and a set of operations as command-line arguments.
+        
+            The numbers are taken from the command-line arguments, excluding the last argument, which is the list of operations.
+        
+            The operations are specified as a space-separated string in the last command-line argument.
+    
+        Operations
+
+            The script defines several functions that correspond to specific operations:
+
+                Swap Operations
+
+                    sa(&$la): Swaps the first two elements of $la if there are at least two elements.
+                
+                    sb(&$lb): Swaps the first two elements of $lb if there are at least two elements.
+                
+                    sc(&$la, &$lb): Performs both sa and sb simultaneously.
+            
+                Push Operations
+
+                    pa(&$la, &$lb): Takes the first element from $lb and moves it to the front of $la.
+                
+                    pb(&$la, &$lb): Takes the first element from $la and moves it to the front of $lb.
+                
+                Rotate Operations
+
+                    ra(&$la): Rotates $la upwards by moving the first element to the end.
+                
+                    rb(&$lb): Rotates $lb upwards by moving the first element to the end.
+                
+                    rr(&$la, &$lb): Performs both ra and rb simultaneously.
+    
+        Processing Operations
+
+            The script reads the operations and applies them sequentially to the arrays $la and $lb using a foreach loop and a switch statement.
+    
+        Output
+
+            After all operations are applied, the script prints the contents of $la and $lb using the printLists($la, $lb) function.
+    
