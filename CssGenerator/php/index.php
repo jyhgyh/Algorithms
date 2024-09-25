@@ -13,10 +13,6 @@ if (empty($images)) {
     exit;
 }
 
-// echo "Images:\n";
-// print_r($images);
-
-// Вычисляем ширину и высоту спрайта
 list($width, $height) = calculateSpriteSize($images);
 
 $sprite = createSprite($images, $width, $height, $outputImage);
