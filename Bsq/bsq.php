@@ -16,6 +16,7 @@ $board = [];
 while (($line = fgets($file)) !== false) {
     $board[] = trim($line);
 }
+
 fclose($file);
 
 $cols = strlen($board[0]);

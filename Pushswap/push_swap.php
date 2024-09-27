@@ -1,7 +1,6 @@
 <?php
 
 $args = array_slice($argv, 1);
-
 $arr = array_map('intval', $args);
 
 function custom_sort($array) {

@@ -43,5 +43,3 @@ function parse_expression($equation)
 
 $result = my_eval_expr($expr);
 echo $result . "\n";
-
-?>

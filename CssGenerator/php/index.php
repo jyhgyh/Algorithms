@@ -86,7 +86,5 @@ function generateCSS($width, $height, $outputStyle)
 
     $name = $outputStyle;
     if (file_put_contents($name, $cssText) === false) {
-        // echo "<meta http-equiv='refresh' content='0; url=http://localhost/error.html'>";
     }
 }
-?>

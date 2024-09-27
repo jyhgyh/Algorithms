@@ -92,4 +92,3 @@ foreach ($operations as $operation) {
 }
 
 printLists($la, $lb);
-?>

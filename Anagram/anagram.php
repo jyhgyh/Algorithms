@@ -81,4 +81,3 @@ if ($handle) {
 } else {
     echo "Impossible d'ouvrir le fichier du dictionnaire.\n";
 }
-?>
